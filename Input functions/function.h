@@ -1,0 +1,1 @@
+void read_inputFile(char filename[50],char** grid, int* width, int* height);
