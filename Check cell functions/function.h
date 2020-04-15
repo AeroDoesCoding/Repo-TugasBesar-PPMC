@@ -1,0 +1,1 @@
+int check_cell(char* grid,int width,int height, int posX, int posY);
