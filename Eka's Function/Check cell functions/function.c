@@ -76,7 +76,7 @@ int check_cell(char* grid,int width,int height, int posX, int posY){
         }else{alive = 0;}
     }else{
         if(n_total == 3){
-            alive = 0;
+            alive = 1;
         }else{alive = 0;}
     }
     return alive;
