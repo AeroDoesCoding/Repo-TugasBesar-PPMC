@@ -1,6 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+*  MODUL 9 – TUGAS BESAR
+*  Kelompok : B-3
+*  Hari dan Tanggal : Kamis, 15 April 2020
+*  Asisten (NIM) : Lionel Valdrant (18316020)
+*  Nama File : functions_main.h
+*  Deskripsi : .h file untuk mengakses functions
+*/
 
 //Eka-------------------------------------------------------------------------------------------------------------------------------------
 //read_inputFile membaca file seed untuk Game of Life dan menaruhnya ke dalam sebuah array 1 dimensi dengan panjang dan lebarnya
