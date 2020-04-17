@@ -16,7 +16,7 @@ void delay(int delay_time_ms){
 	while (clock() < start_time + delay_time_ms);
 }
 
-void animate(int h, int w, int count, char **array){
+void animate(int h, int w, int count, char** array){
     int i;
     for (i = 0; i < count; i++) {
 		// delay of one second
