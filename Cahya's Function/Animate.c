@@ -19,7 +19,7 @@ void animate(int count){
 		// delay of one second
 		delay();
 		printf("\e[1;1H\e[2J");
-		tick();
+		//tick();
 	}
 }
 
