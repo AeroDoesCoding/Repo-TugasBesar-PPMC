@@ -8,21 +8,24 @@
 void delay();
 void animate(int h, int w, int count, char array[h][w]);
 
-void delay(){
+void delay(int delay_time_ms){
 	// Storing start time
 	clock_t start_time = clock();
 
 	// looping till required time is not achieved
-	while (clock() < start_time + 200);
+	while (clock() < start_time + delay_time_ms);
 }
 
-void animate(int h, int w, int count, char array[h][w]){
+void animate(int h, int w, int count, char **array){
     int i;
-    system("cls");
     for (i = 0; i < count; i++) {
 		// delay of one second
-		delay();
-		printf("\e[1;1H\e[2J");
+		if(h*w < 3000){
+            delay(200);
+		}
+		else{
+            delay(100);
+		}
 		tick(array,h,w);
 	}
 }
