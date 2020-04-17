@@ -1,16 +1,8 @@
-/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
-*  MODUL 9 – TUGAS BESAR
-*  Kelompok : B-3
-*  Hari dan Tanggal : Kamis, 15 April 2020
-*  Asisten (NIM) : Lionel Valdrant (18316020)
-*  Nama File : functions_eka.c
-*  Deskripsi : Function file untuk main
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-
+//Eka-----------------------------------------------------------------------------------------------------------------------------
 void read_inputFile(char filename[50], char** grid, int* width, int* height){
     FILE *textfile;
     int w,h,i,size;
@@ -133,3 +125,69 @@ int check_cell(char* grid,int width,int height, int posX, int posY){
 
     return alive;
 }
+
+//Emergency----------------------------------------------------------------------------------
+void print_grid(char* grid,int width,int height){
+    int i,k;
+    for(i=0;i<50;i++){
+        printf("\n");
+    }
+    k = 0;
+    for(i=0;i<(width*height);i++){
+        if(k > width-1){
+            k = 1;
+            printf("\n");
+        }else{
+            k++;
+        }
+        printf("%c",grid[i]);
+    }
+    printf("\n");
+}
+
+void tick(char** grid,int width, int height){
+    char* new_grid = (char*) malloc((width*height)*sizeof(char));
+    int x,y,size,check,i;
+    size = width * height;
+    for(i=0;i<size;i++){
+        i_to_XY(i,&x,&y,width,height);
+        check = check_cell(*grid,width,height,x,y);
+        if(check == 1){
+            new_grid[i] = 'X';
+        }else{
+            new_grid[i] = '-';
+        }
+    }
+    *grid = new_grid;
+    print_grid(*grid,width,height);
+}
+
+//Cahya-----------------------------------------------------------------------------------------------------------------
+void delay(int delay_time_ms){
+	// Menyimpan start_time agar dapat menghitung waktu yang digunakan
+	clock_t start_time = clock();
+
+	// looping hingga mencapai waktu yang diinginkan
+	while (clock() < start_time + delay_time_ms);
+}
+
+
+
+void animate(int h, int w, int count, char** array){
+    int i;
+    // mengulang sebanyak count dengan parameter i
+    for (i = 0; i < count; i++) {
+		// delay 200 ms jika besar array kurang dari 3000
+		if(h*w < 3000){
+            delay(200);
+		}
+		// delay 100 jika besar array lebih dari 3000 karena print yang menghasilkan delay
+		else{
+            delay(100);
+		}
+		// melakukan tick array (melakukan print sekaligus mengikuti aturan Game of Life
+		tick(array,w,h);
+	}
+}
+
+

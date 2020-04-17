@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "function.h"
+#include "functions_main.h"
 
 int main(){
     int input,check_file,w,h,stop,frame;
@@ -32,7 +32,7 @@ int main(){
     printf("seed awal | panjang = %d | tinggi = %d\n",w,h);
     stop = 0;
     while(stop == 0){
-        printf("-----------Menu----------\n");
+        printf("_______________Menu_______________\n");
         printf("1.tick\n2.Animate\n3.Stop\n");
         printf("Masukkan pilihan menu: ");
         scanf("%d",&input);
@@ -41,7 +41,7 @@ int main(){
         }else if(input == 2){
             printf("Masukkan berapa frame animasi mau dilakukan : ");
             scanf("%d",&frame);
-            animate(&grid,w,h,frame);
+            animate(h,w,frame,&grid);
         }else if(input == 3){
             printf("Program Berhenti");
             stop = 1;
