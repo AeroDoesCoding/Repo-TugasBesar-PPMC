@@ -40,6 +40,7 @@ void read_inputFile(char filename[50], char** grid, int* width, int* height){
     *grid = new_grid;
     *width = w;
     *height= h;
+    fclose(textfile);
 }
 
 //function XY_to_i mengubah posisi dalam koodinat ke dalam hitungan array 1 dimensi
