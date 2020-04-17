@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-#include<tick.h>
+#include"tick.h"
 
 void delay();
 void animate(int h, int w, int count, char array[h][w]);
