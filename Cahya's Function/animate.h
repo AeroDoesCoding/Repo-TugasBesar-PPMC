@@ -15,7 +15,7 @@
 #include"tick.h"
 
 void delay(int delay_time_ms);
-void animate(int h, int w, int count, char **array);
+void animate(int h, int w, int count, char** array);
 
 void delay(int delay_time_ms){
 	// Menyimpan start_time agar dapat menghitung waktu yang digunakan
