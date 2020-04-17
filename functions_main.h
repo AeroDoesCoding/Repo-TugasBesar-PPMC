@@ -9,9 +9,9 @@ void read_inputFile(char filename[50], char** grid, int* width, int* height);
   Return 1 jika hidup, return 0 jika mati*/
 int check_cell(char* grid,int width,int height, int posX, int posY);
 
-//Emergency
-void print_grid(char* grid,int width,int height);
-void tick(char** grid,int width, int height);
+//Daffa
+void print_grid(char* grid,int h,int w);
+void tick(char **grid,int h,int w);
 
 //Cahya
 void delay(int delay_time_ms);

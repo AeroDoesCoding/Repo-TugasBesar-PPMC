@@ -126,41 +126,46 @@ int check_cell(char* grid,int width,int height, int posX, int posY){
     return alive;
 }
 
-//Emergency----------------------------------------------------------------------------------
-void print_grid(char* grid,int width,int height){
-    int i,k;
-    for(i=0;i<50;i++){
+//Daffa
+void print_grid(char* grid,int h,int w){
+    int i,j;
+    j=0;
+
+    for (i=0;i<100;i++){
         printf("\n");
     }
-    k = 0;
-    for(i=0;i<(width*height);i++){
-        if(k > width-1){
-            k = 1;
+    j=0;
+   for (i=0;i<(w*h);i++){
+        if (j>(w-1)){
+            j=1;
             printf("\n");
-        }else{
-            k++;
         }
-        printf("%c",grid[i]);
+        else{
+            j++;
+        }
+        printf("%c", grid[i]);
+        }
+        printf("\n");
     }
-    printf("\n");
-}
 
-void tick(char** grid,int width, int height){
-    char* new_grid = (char*) malloc((width*height)*sizeof(char));
-    int x,y,size,check,i;
-    size = width * height;
-    for(i=0;i<size;i++){
-        i_to_XY(i,&x,&y,width,height);
-        check = check_cell(*grid,width,height,x,y);
-        if(check == 1){
-            new_grid[i] = 'X';
-        }else{
-            new_grid[i] = '-';
+void tick(char **grid,int h,int w){
+    char* new_grid=(char*) malloc((w*h)*sizeof(char));
+    int x,y,i,check;
+    for (i=0;i<(w*h);i++){
+        i_to_XY(i,&x,&y,w,h);
+
+        if (check_cell(*grid,w,h,x,y)==1){
+            new_grid[i]='X';
+            }
+        else{
+            new_grid[i]='-';
         }
+        }
+    *grid=new_grid;
+    print_grid(*grid,h,w);
     }
-    *grid = new_grid;
-    print_grid(*grid,width,height);
-}
+
+
 
 //Cahya-----------------------------------------------------------------------------------------------------------------
 void delay(int delay_time_ms){
@@ -186,7 +191,7 @@ void animate(int h, int w, int count, char** array){
             delay(100);
 		}
 		// melakukan tick array (melakukan print sekaligus mengikuti aturan Game of Life
-		tick(array,w,h);
+		tick(array,h,w);
 	}
 }
 

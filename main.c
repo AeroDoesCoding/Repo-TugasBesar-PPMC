@@ -27,7 +27,7 @@ int main(){
     }
     fclose(file_check);
     read_inputFile(filename,&grid,&w,&h);
-    print_grid(grid,w,h);
+    print_grid(grid,h,w);
     printf("File telah berhasil di load\n");
     printf("seed awal | panjang = %d | tinggi = %d\n",w,h);
     stop = 0;
@@ -37,7 +37,7 @@ int main(){
         printf("Masukkan pilihan menu: ");
         scanf("%d",&input);
         if(input == 1){
-            tick(&grid,w,h);
+            tick(&grid,h,w);
         }else if(input == 2){
             printf("Masukkan berapa frame animasi mau dilakukan : ");
             scanf("%d",&frame);
